@@ -6,22 +6,31 @@ rulesheet
 rule 	:	condition+ assignment;
 
 assignment 
-	:	'=>' ID varlist?;
+	:	'=>' URI varlist?;
 
 condition
-	:	KW ID ('='|'!')  pattern;
+	:	KW URI ('='|'!')  pattern;
 	
-pattern :	'`'ID*'`';
+pattern :	'`'CHAR*'`';
 
-varlist 	:	'('(var',')*var')';
+varlist 	
+	:	'('(var',')*var')';
 
-var 	:	ALPHA(ALPHA | DIGIT)* '=' ALPHA*;
+var	:	IDENT '=' ALPHA*;
+
 
 KW 	:	 'authority' | 'scheme' | 'URI' | 'domain_name' | 'port' | 'ip' | 'path' | 'fragment' | 'query_string'
                  'header' | 'method';
-
+                 
 ALPHA 	:	(('a'..'z')|('A'..'Z'));
+
+IDENT 	:	ALPHA(ALPHA | DIGIT)*;
 
 DIGIT 	:	'0'..'9';
 
-ID 	:	~(' ' | '\n' | '\r');
+CHAR	:	~(' ' | '\n' | '\r');
+
+URI 	:	CHAR+;
+
+WHITESPACE 
+	: ( '\t' | ' ' | '\r' | '\n'| '\u000C' )+ { $channel = HIDDEN; };

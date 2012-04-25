@@ -1,4 +1,4 @@
-// $ANTLR 3.4 C:\\Users\\Chuck\\git\\quilt\\QuiltDispatchBasic.g 2012-04-18 08:07:29
+// $ANTLR 3.4 C:\\Users\\Chuck\\git\\quilt\\dispatcher\\QuiltDispatchBasic.g 2012-04-25 08:27:26
 
 import org.antlr.runtime.*;
 import java.util.Stack;
@@ -8,21 +8,24 @@ import java.util.ArrayList;
 @SuppressWarnings({"all", "warnings", "unchecked"})
 public class QuiltDispatchBasicParser extends Parser {
     public static final String[] tokenNames = new String[] {
-        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "ALPHA", "DIGIT", "ID", "KW", "'!'", "'('", "')'", "','", "'='", "'=>'", "'`'"
+        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "ALPHA", "CHAR", "DIGIT", "IDENT", "KW", "URI", "WHITESPACE", "'!'", "'('", "')'", "','", "'='", "'=>'", "'`'"
     };
 
     public static final int EOF=-1;
-    public static final int T__8=8;
-    public static final int T__9=9;
-    public static final int T__10=10;
     public static final int T__11=11;
     public static final int T__12=12;
     public static final int T__13=13;
     public static final int T__14=14;
+    public static final int T__15=15;
+    public static final int T__16=16;
+    public static final int T__17=17;
     public static final int ALPHA=4;
-    public static final int DIGIT=5;
-    public static final int ID=6;
-    public static final int KW=7;
+    public static final int CHAR=5;
+    public static final int DIGIT=6;
+    public static final int IDENT=7;
+    public static final int KW=8;
+    public static final int URI=9;
+    public static final int WHITESPACE=10;
 
     // delegates
     public Parser[] getDelegates() {
@@ -40,18 +43,18 @@ public class QuiltDispatchBasicParser extends Parser {
     }
 
     public String[] getTokenNames() { return QuiltDispatchBasicParser.tokenNames; }
-    public String getGrammarFileName() { return "C:\\Users\\Chuck\\git\\quilt\\QuiltDispatchBasic.g"; }
+    public String getGrammarFileName() { return "C:\\Users\\Chuck\\git\\quilt\\dispatcher\\QuiltDispatchBasic.g"; }
 
 
 
     // $ANTLR start "rulesheet"
-    // C:\\Users\\Chuck\\git\\quilt\\QuiltDispatchBasic.g:3:1: rulesheet : ( rule )* ;
+    // C:\\Users\\Chuck\\git\\quilt\\dispatcher\\QuiltDispatchBasic.g:3:1: rulesheet : ( rule )* ;
     public final void rulesheet() throws RecognitionException {
         try {
-            // C:\\Users\\Chuck\\git\\quilt\\QuiltDispatchBasic.g:4:2: ( ( rule )* )
-            // C:\\Users\\Chuck\\git\\quilt\\QuiltDispatchBasic.g:4:4: ( rule )*
+            // C:\\Users\\Chuck\\git\\quilt\\dispatcher\\QuiltDispatchBasic.g:4:2: ( ( rule )* )
+            // C:\\Users\\Chuck\\git\\quilt\\dispatcher\\QuiltDispatchBasic.g:4:4: ( rule )*
             {
-            // C:\\Users\\Chuck\\git\\quilt\\QuiltDispatchBasic.g:4:4: ( rule )*
+            // C:\\Users\\Chuck\\git\\quilt\\dispatcher\\QuiltDispatchBasic.g:4:4: ( rule )*
             loop1:
             do {
                 int alt1=2;
@@ -64,7 +67,7 @@ public class QuiltDispatchBasicParser extends Parser {
 
                 switch (alt1) {
             	case 1 :
-            	    // C:\\Users\\Chuck\\git\\quilt\\QuiltDispatchBasic.g:4:4: rule
+            	    // C:\\Users\\Chuck\\git\\quilt\\dispatcher\\QuiltDispatchBasic.g:4:4: rule
             	    {
             	    pushFollow(FOLLOW_rule_in_rulesheet12);
             	    rule();
@@ -99,13 +102,13 @@ public class QuiltDispatchBasicParser extends Parser {
 
 
     // $ANTLR start "rule"
-    // C:\\Users\\Chuck\\git\\quilt\\QuiltDispatchBasic.g:6:1: rule : ( condition )+ assignment ;
+    // C:\\Users\\Chuck\\git\\quilt\\dispatcher\\QuiltDispatchBasic.g:6:1: rule : ( condition )+ assignment ;
     public final void rule() throws RecognitionException {
         try {
-            // C:\\Users\\Chuck\\git\\quilt\\QuiltDispatchBasic.g:6:7: ( ( condition )+ assignment )
-            // C:\\Users\\Chuck\\git\\quilt\\QuiltDispatchBasic.g:6:9: ( condition )+ assignment
+            // C:\\Users\\Chuck\\git\\quilt\\dispatcher\\QuiltDispatchBasic.g:6:7: ( ( condition )+ assignment )
+            // C:\\Users\\Chuck\\git\\quilt\\dispatcher\\QuiltDispatchBasic.g:6:9: ( condition )+ assignment
             {
-            // C:\\Users\\Chuck\\git\\quilt\\QuiltDispatchBasic.g:6:9: ( condition )+
+            // C:\\Users\\Chuck\\git\\quilt\\dispatcher\\QuiltDispatchBasic.g:6:9: ( condition )+
             int cnt2=0;
             loop2:
             do {
@@ -119,7 +122,7 @@ public class QuiltDispatchBasicParser extends Parser {
 
                 switch (alt2) {
             	case 1 :
-            	    // C:\\Users\\Chuck\\git\\quilt\\QuiltDispatchBasic.g:6:9: condition
+            	    // C:\\Users\\Chuck\\git\\quilt\\dispatcher\\QuiltDispatchBasic.g:6:9: condition
             	    {
             	    pushFollow(FOLLOW_condition_in_rule22);
             	    condition();
@@ -164,26 +167,26 @@ public class QuiltDispatchBasicParser extends Parser {
 
 
     // $ANTLR start "assignment"
-    // C:\\Users\\Chuck\\git\\quilt\\QuiltDispatchBasic.g:8:1: assignment : '=>' ID ( varlist )? ;
+    // C:\\Users\\Chuck\\git\\quilt\\dispatcher\\QuiltDispatchBasic.g:8:1: assignment : '=>' URI ( varlist )? ;
     public final void assignment() throws RecognitionException {
         try {
-            // C:\\Users\\Chuck\\git\\quilt\\QuiltDispatchBasic.g:9:2: ( '=>' ID ( varlist )? )
-            // C:\\Users\\Chuck\\git\\quilt\\QuiltDispatchBasic.g:9:4: '=>' ID ( varlist )?
+            // C:\\Users\\Chuck\\git\\quilt\\dispatcher\\QuiltDispatchBasic.g:9:2: ( '=>' URI ( varlist )? )
+            // C:\\Users\\Chuck\\git\\quilt\\dispatcher\\QuiltDispatchBasic.g:9:4: '=>' URI ( varlist )?
             {
-            match(input,13,FOLLOW_13_in_assignment35); 
+            match(input,16,FOLLOW_16_in_assignment35); 
 
-            match(input,ID,FOLLOW_ID_in_assignment37); 
+            match(input,URI,FOLLOW_URI_in_assignment37); 
 
-            // C:\\Users\\Chuck\\git\\quilt\\QuiltDispatchBasic.g:9:12: ( varlist )?
+            // C:\\Users\\Chuck\\git\\quilt\\dispatcher\\QuiltDispatchBasic.g:9:13: ( varlist )?
             int alt3=2;
             int LA3_0 = input.LA(1);
 
-            if ( (LA3_0==9) ) {
+            if ( (LA3_0==12) ) {
                 alt3=1;
             }
             switch (alt3) {
                 case 1 :
-                    // C:\\Users\\Chuck\\git\\quilt\\QuiltDispatchBasic.g:9:12: varlist
+                    // C:\\Users\\Chuck\\git\\quilt\\dispatcher\\QuiltDispatchBasic.g:9:13: varlist
                     {
                     pushFollow(FOLLOW_varlist_in_assignment39);
                     varlist();
@@ -215,17 +218,17 @@ public class QuiltDispatchBasicParser extends Parser {
 
 
     // $ANTLR start "condition"
-    // C:\\Users\\Chuck\\git\\quilt\\QuiltDispatchBasic.g:11:1: condition : KW ID ( '=' | '!' ) pattern ;
+    // C:\\Users\\Chuck\\git\\quilt\\dispatcher\\QuiltDispatchBasic.g:11:1: condition : KW URI ( '=' | '!' ) pattern ;
     public final void condition() throws RecognitionException {
         try {
-            // C:\\Users\\Chuck\\git\\quilt\\QuiltDispatchBasic.g:12:2: ( KW ID ( '=' | '!' ) pattern )
-            // C:\\Users\\Chuck\\git\\quilt\\QuiltDispatchBasic.g:12:4: KW ID ( '=' | '!' ) pattern
+            // C:\\Users\\Chuck\\git\\quilt\\dispatcher\\QuiltDispatchBasic.g:12:2: ( KW URI ( '=' | '!' ) pattern )
+            // C:\\Users\\Chuck\\git\\quilt\\dispatcher\\QuiltDispatchBasic.g:12:4: KW URI ( '=' | '!' ) pattern
             {
             match(input,KW,FOLLOW_KW_in_condition49); 
 
-            match(input,ID,FOLLOW_ID_in_condition51); 
+            match(input,URI,FOLLOW_URI_in_condition51); 
 
-            if ( input.LA(1)==8||input.LA(1)==12 ) {
+            if ( input.LA(1)==11||input.LA(1)==15 ) {
                 input.consume();
                 state.errorRecovery=false;
             }
@@ -259,30 +262,30 @@ public class QuiltDispatchBasicParser extends Parser {
 
 
     // $ANTLR start "pattern"
-    // C:\\Users\\Chuck\\git\\quilt\\QuiltDispatchBasic.g:14:1: pattern : '`' ( ID )* '`' ;
+    // C:\\Users\\Chuck\\git\\quilt\\dispatcher\\QuiltDispatchBasic.g:14:1: pattern : '`' ( CHAR )* '`' ;
     public final void pattern() throws RecognitionException {
         try {
-            // C:\\Users\\Chuck\\git\\quilt\\QuiltDispatchBasic.g:14:9: ( '`' ( ID )* '`' )
-            // C:\\Users\\Chuck\\git\\quilt\\QuiltDispatchBasic.g:14:11: '`' ( ID )* '`'
+            // C:\\Users\\Chuck\\git\\quilt\\dispatcher\\QuiltDispatchBasic.g:14:9: ( '`' ( CHAR )* '`' )
+            // C:\\Users\\Chuck\\git\\quilt\\dispatcher\\QuiltDispatchBasic.g:14:11: '`' ( CHAR )* '`'
             {
-            match(input,14,FOLLOW_14_in_pattern69); 
+            match(input,17,FOLLOW_17_in_pattern69); 
 
-            // C:\\Users\\Chuck\\git\\quilt\\QuiltDispatchBasic.g:14:14: ( ID )*
+            // C:\\Users\\Chuck\\git\\quilt\\dispatcher\\QuiltDispatchBasic.g:14:14: ( CHAR )*
             loop4:
             do {
                 int alt4=2;
                 int LA4_0 = input.LA(1);
 
-                if ( (LA4_0==ID) ) {
+                if ( (LA4_0==CHAR) ) {
                     alt4=1;
                 }
 
 
                 switch (alt4) {
             	case 1 :
-            	    // C:\\Users\\Chuck\\git\\quilt\\QuiltDispatchBasic.g:14:14: ID
+            	    // C:\\Users\\Chuck\\git\\quilt\\dispatcher\\QuiltDispatchBasic.g:14:14: CHAR
             	    {
-            	    match(input,ID,FOLLOW_ID_in_pattern70); 
+            	    match(input,CHAR,FOLLOW_CHAR_in_pattern70); 
 
             	    }
             	    break;
@@ -293,7 +296,7 @@ public class QuiltDispatchBasicParser extends Parser {
             } while (true);
 
 
-            match(input,14,FOLLOW_14_in_pattern72); 
+            match(input,17,FOLLOW_17_in_pattern72); 
 
             }
 
@@ -313,30 +316,30 @@ public class QuiltDispatchBasicParser extends Parser {
 
 
     // $ANTLR start "varlist"
-    // C:\\Users\\Chuck\\git\\quilt\\QuiltDispatchBasic.g:16:1: varlist : '(' ( var ',' )* var ')' ;
+    // C:\\Users\\Chuck\\git\\quilt\\dispatcher\\QuiltDispatchBasic.g:16:1: varlist : '(' ( var ',' )* var ')' ;
     public final void varlist() throws RecognitionException {
         try {
-            // C:\\Users\\Chuck\\git\\quilt\\QuiltDispatchBasic.g:16:10: ( '(' ( var ',' )* var ')' )
-            // C:\\Users\\Chuck\\git\\quilt\\QuiltDispatchBasic.g:16:12: '(' ( var ',' )* var ')'
+            // C:\\Users\\Chuck\\git\\quilt\\dispatcher\\QuiltDispatchBasic.g:17:2: ( '(' ( var ',' )* var ')' )
+            // C:\\Users\\Chuck\\git\\quilt\\dispatcher\\QuiltDispatchBasic.g:17:4: '(' ( var ',' )* var ')'
             {
-            match(input,9,FOLLOW_9_in_varlist81); 
+            match(input,12,FOLLOW_12_in_varlist83); 
 
-            // C:\\Users\\Chuck\\git\\quilt\\QuiltDispatchBasic.g:16:15: ( var ',' )*
+            // C:\\Users\\Chuck\\git\\quilt\\dispatcher\\QuiltDispatchBasic.g:17:7: ( var ',' )*
             loop5:
             do {
                 int alt5=2;
                 alt5 = dfa5.predict(input);
                 switch (alt5) {
             	case 1 :
-            	    // C:\\Users\\Chuck\\git\\quilt\\QuiltDispatchBasic.g:16:16: var ','
+            	    // C:\\Users\\Chuck\\git\\quilt\\dispatcher\\QuiltDispatchBasic.g:17:8: var ','
             	    {
-            	    pushFollow(FOLLOW_var_in_varlist83);
+            	    pushFollow(FOLLOW_var_in_varlist85);
             	    var();
 
             	    state._fsp--;
 
 
-            	    match(input,11,FOLLOW_11_in_varlist84); 
+            	    match(input,14,FOLLOW_14_in_varlist86); 
 
             	    }
             	    break;
@@ -347,13 +350,13 @@ public class QuiltDispatchBasicParser extends Parser {
             } while (true);
 
 
-            pushFollow(FOLLOW_var_in_varlist87);
+            pushFollow(FOLLOW_var_in_varlist89);
             var();
 
             state._fsp--;
 
 
-            match(input,10,FOLLOW_10_in_varlist88); 
+            match(input,13,FOLLOW_13_in_varlist90); 
 
             }
 
@@ -373,72 +376,38 @@ public class QuiltDispatchBasicParser extends Parser {
 
 
     // $ANTLR start "var"
-    // C:\\Users\\Chuck\\git\\quilt\\QuiltDispatchBasic.g:18:1: var : ALPHA ( ALPHA | DIGIT )* '=' ( ALPHA )* ;
+    // C:\\Users\\Chuck\\git\\quilt\\dispatcher\\QuiltDispatchBasic.g:19:1: var : IDENT '=' ( ALPHA )* ;
     public final void var() throws RecognitionException {
         try {
-            // C:\\Users\\Chuck\\git\\quilt\\QuiltDispatchBasic.g:18:6: ( ALPHA ( ALPHA | DIGIT )* '=' ( ALPHA )* )
-            // C:\\Users\\Chuck\\git\\quilt\\QuiltDispatchBasic.g:18:8: ALPHA ( ALPHA | DIGIT )* '=' ( ALPHA )*
+            // C:\\Users\\Chuck\\git\\quilt\\dispatcher\\QuiltDispatchBasic.g:19:5: ( IDENT '=' ( ALPHA )* )
+            // C:\\Users\\Chuck\\git\\quilt\\dispatcher\\QuiltDispatchBasic.g:19:7: IDENT '=' ( ALPHA )*
             {
-            match(input,ALPHA,FOLLOW_ALPHA_in_var97); 
+            match(input,IDENT,FOLLOW_IDENT_in_var98); 
 
-            // C:\\Users\\Chuck\\git\\quilt\\QuiltDispatchBasic.g:18:13: ( ALPHA | DIGIT )*
+            match(input,15,FOLLOW_15_in_var100); 
+
+            // C:\\Users\\Chuck\\git\\quilt\\dispatcher\\QuiltDispatchBasic.g:19:17: ( ALPHA )*
             loop6:
             do {
                 int alt6=2;
                 int LA6_0 = input.LA(1);
 
-                if ( ((LA6_0 >= ALPHA && LA6_0 <= DIGIT)) ) {
+                if ( (LA6_0==ALPHA) ) {
                     alt6=1;
                 }
 
 
                 switch (alt6) {
             	case 1 :
-            	    // C:\\Users\\Chuck\\git\\quilt\\QuiltDispatchBasic.g:
+            	    // C:\\Users\\Chuck\\git\\quilt\\dispatcher\\QuiltDispatchBasic.g:19:17: ALPHA
             	    {
-            	    if ( (input.LA(1) >= ALPHA && input.LA(1) <= DIGIT) ) {
-            	        input.consume();
-            	        state.errorRecovery=false;
-            	    }
-            	    else {
-            	        MismatchedSetException mse = new MismatchedSetException(null,input);
-            	        throw mse;
-            	    }
-
+            	    match(input,ALPHA,FOLLOW_ALPHA_in_var102); 
 
             	    }
             	    break;
 
             	default :
             	    break loop6;
-                }
-            } while (true);
-
-
-            match(input,12,FOLLOW_12_in_var107); 
-
-            // C:\\Users\\Chuck\\git\\quilt\\QuiltDispatchBasic.g:18:34: ( ALPHA )*
-            loop7:
-            do {
-                int alt7=2;
-                int LA7_0 = input.LA(1);
-
-                if ( (LA7_0==ALPHA) ) {
-                    alt7=1;
-                }
-
-
-                switch (alt7) {
-            	case 1 :
-            	    // C:\\Users\\Chuck\\git\\quilt\\QuiltDispatchBasic.g:18:34: ALPHA
-            	    {
-            	    match(input,ALPHA,FOLLOW_ALPHA_in_var109); 
-
-            	    }
-            	    break;
-
-            	default :
-            	    break loop7;
                 }
             } while (true);
 
@@ -463,23 +432,22 @@ public class QuiltDispatchBasicParser extends Parser {
 
     protected DFA5 dfa5 = new DFA5(this);
     static final String DFA5_eotS =
-        "\7\uffff";
+        "\6\uffff";
     static final String DFA5_eofS =
-        "\7\uffff";
+        "\6\uffff";
     static final String DFA5_minS =
-        "\5\4\2\uffff";
+        "\1\7\1\17\2\4\2\uffff";
     static final String DFA5_maxS =
-        "\1\4\2\14\2\13\2\uffff";
+        "\1\7\1\17\2\16\2\uffff";
     static final String DFA5_acceptS =
-        "\5\uffff\1\2\1\1";
+        "\4\uffff\1\2\1\1";
     static final String DFA5_specialS =
-        "\7\uffff}>";
+        "\6\uffff}>";
     static final String[] DFA5_transitionS = {
             "\1\1",
-            "\2\2\6\uffff\1\3",
-            "\2\2\6\uffff\1\3",
-            "\1\4\5\uffff\1\5\1\6",
-            "\1\4\5\uffff\1\5\1\6",
+            "\1\2",
+            "\1\3\10\uffff\1\4\1\5",
+            "\1\3\10\uffff\1\4\1\5",
             "",
             ""
     };
@@ -514,31 +482,31 @@ public class QuiltDispatchBasicParser extends Parser {
             this.transition = DFA5_transition;
         }
         public String getDescription() {
-            return "()* loopback of 16:15: ( var ',' )*";
+            return "()* loopback of 17:7: ( var ',' )*";
         }
     }
  
 
-    public static final BitSet FOLLOW_rule_in_rulesheet12 = new BitSet(new long[]{0x0000000000000082L});
-    public static final BitSet FOLLOW_condition_in_rule22 = new BitSet(new long[]{0x0000000000002080L});
+    public static final BitSet FOLLOW_rule_in_rulesheet12 = new BitSet(new long[]{0x0000000000000102L});
+    public static final BitSet FOLLOW_condition_in_rule22 = new BitSet(new long[]{0x0000000000010100L});
     public static final BitSet FOLLOW_assignment_in_rule25 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_13_in_assignment35 = new BitSet(new long[]{0x0000000000000040L});
-    public static final BitSet FOLLOW_ID_in_assignment37 = new BitSet(new long[]{0x0000000000000202L});
+    public static final BitSet FOLLOW_16_in_assignment35 = new BitSet(new long[]{0x0000000000000200L});
+    public static final BitSet FOLLOW_URI_in_assignment37 = new BitSet(new long[]{0x0000000000001002L});
     public static final BitSet FOLLOW_varlist_in_assignment39 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_KW_in_condition49 = new BitSet(new long[]{0x0000000000000040L});
-    public static final BitSet FOLLOW_ID_in_condition51 = new BitSet(new long[]{0x0000000000001100L});
-    public static final BitSet FOLLOW_set_in_condition53 = new BitSet(new long[]{0x0000000000004000L});
+    public static final BitSet FOLLOW_KW_in_condition49 = new BitSet(new long[]{0x0000000000000200L});
+    public static final BitSet FOLLOW_URI_in_condition51 = new BitSet(new long[]{0x0000000000008800L});
+    public static final BitSet FOLLOW_set_in_condition53 = new BitSet(new long[]{0x0000000000020000L});
     public static final BitSet FOLLOW_pattern_in_condition60 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_14_in_pattern69 = new BitSet(new long[]{0x0000000000004040L});
-    public static final BitSet FOLLOW_ID_in_pattern70 = new BitSet(new long[]{0x0000000000004040L});
-    public static final BitSet FOLLOW_14_in_pattern72 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_9_in_varlist81 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_var_in_varlist83 = new BitSet(new long[]{0x0000000000000800L});
-    public static final BitSet FOLLOW_11_in_varlist84 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_var_in_varlist87 = new BitSet(new long[]{0x0000000000000400L});
-    public static final BitSet FOLLOW_10_in_varlist88 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ALPHA_in_var97 = new BitSet(new long[]{0x0000000000001030L});
-    public static final BitSet FOLLOW_12_in_var107 = new BitSet(new long[]{0x0000000000000012L});
-    public static final BitSet FOLLOW_ALPHA_in_var109 = new BitSet(new long[]{0x0000000000000012L});
+    public static final BitSet FOLLOW_17_in_pattern69 = new BitSet(new long[]{0x0000000000020020L});
+    public static final BitSet FOLLOW_CHAR_in_pattern70 = new BitSet(new long[]{0x0000000000020020L});
+    public static final BitSet FOLLOW_17_in_pattern72 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_12_in_varlist83 = new BitSet(new long[]{0x0000000000000080L});
+    public static final BitSet FOLLOW_var_in_varlist85 = new BitSet(new long[]{0x0000000000004000L});
+    public static final BitSet FOLLOW_14_in_varlist86 = new BitSet(new long[]{0x0000000000000080L});
+    public static final BitSet FOLLOW_var_in_varlist89 = new BitSet(new long[]{0x0000000000002000L});
+    public static final BitSet FOLLOW_13_in_varlist90 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_IDENT_in_var98 = new BitSet(new long[]{0x0000000000008000L});
+    public static final BitSet FOLLOW_15_in_var100 = new BitSet(new long[]{0x0000000000000012L});
+    public static final BitSet FOLLOW_ALPHA_in_var102 = new BitSet(new long[]{0x0000000000000012L});
 
 }
