@@ -1,0 +1,5 @@
+	protocol = `https`
+	port = `80`
+	=> /index.qlt
+
+	=> /unsecure.html
