@@ -1,0 +1,69 @@
+Quilt Dispatcher
+
+The Quilt Dispatcher is a facet of the Quilt utility which allows developers to write rules based on the
+URI that users have entered to redirect them to some sort of content, be it a Quilt file or a static page
+
+The Dispatcher uses its own domain specific language and written on files called rulesheets which contain
+certain elements
+
+*Rules - A rulesheet must contain at least one rule, rules can contain 0 or more "conditions" and most 
+contain an "assignment"
+
+*Conditions - A condition is an optional part of a rule, a rule contains a keyword which matches to a part
+of the URI. The URI is followed by a equals sign(=) or a bang(!) then a regular expression enclosed in 
+backticks(`). In this case = means contains and bang means does not contain. If any of the conditions fail
+the Dispatcher will attempt to examine the next rule in the rulesheet. In the case of a default rule no 
+conditions are neccessarry
+
+*Assignment - The required part of a rule. An assignment is denoted by => followed by the desired URI.
+Optionally a list of variables may be attached to be passed on as parameters to the desired Quilt Document
+
+*Variable list - an optional part of the assignment its delimited by parenthesis () which contain 1 or more
+variable assignments seperated by commas
+
+*Variable Assignments - simply an Identifier followed by an equal sign(=) followed by a value
+
+*Identfier - An alphanumeric string that starts with alpha character
+
+
+**Examples**
+
+these examples contain one rule and a default rule. Real world uses may have several rules
+in each sheet
+
+The site contains a blog, the dev wants to check if blog is in the path, then checks
+if the query_string contains a variable called "entry" followed by an ID
+then a back reference to the id is used as a variable to be passed to the quilt.
+The default rule is called if the query string does not meet the requirments
+
+	path = `blog`
+	query_string = `entry=[0-9]+`
+	=> /quilt/blog.qlt (entry = \2)
+	
+	=> /quilt/blog.qlt
+
+Make sure the user is coming through a secure connection & port 80
+
+	protocol = `https`
+	port = `80`
+	=> /index.qlt
+
+	=> /unsecure.html
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
